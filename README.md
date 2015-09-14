@@ -4,7 +4,9 @@ Tip Calculator application
 
 Time Spent: 12 hours, most of which was spent reading about the swift language
 
-* [x] i only did the basic tip calculator because walmart is taking up time.
+* [x] changed the tip percentage to a slider
+* [x] added settings transition
+* [x] added default tip percentage that is persisted across restart
 
 Walkthrough
 
