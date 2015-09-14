@@ -22,7 +22,11 @@ class ViewController: UIViewController {
         
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
-        tipPctSliderLabel.text = "\(Int(round(tipPctSlider.value)))%"
+//        tipPctSliderLabel.text = "\(Int(round(tipPctSlider.value)))%"
+        var defaults = NSUserDefaults.standardUserDefaults()
+        var defaultPct = defaults.integerForKey("TipCalculator.DefaultPercentage");
+        tipPctSliderLabel.text = "\(defaultPct)%"
+        tipPctSlider.value = Float(defaultPct)
     }
 
     @IBAction func onTap(sender: AnyObject) {
@@ -87,6 +91,32 @@ class ViewController: UIViewController {
     
     @IBAction func onEditingChanged(sender: AnyObject) {
  //       println("user editing bill")
+        updateFields()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
+    
+    @IBAction func defaultButtonPushed(sender: AnyObject) {
+//        println("default button pushed")
+        var defaults = NSUserDefaults.standardUserDefaults()
+        var defaultPct = defaults.integerForKey("TipCalculator.DefaultPercentage");
+        tipPctSliderLabel.text = "\(defaultPct)%"
+        tipPctSlider.value = Float(defaultPct)
         updateFields()
     }
 }
